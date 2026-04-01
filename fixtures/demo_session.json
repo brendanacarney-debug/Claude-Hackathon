@@ -1,0 +1,276 @@
+{
+  "session_id": "demo-session-001",
+  "created_at": "2026-04-01T14:30:00Z",
+  "recovery_profile": "walker_after_fall",
+  "status": "analyzed",
+  "rooms": [
+    {
+      "room_id": "room-bedroom-001",
+      "room_type": "bedroom",
+      "floor_type": "hardwood",
+      "lighting_quality": "adequate",
+      "objects": [
+        {
+          "object_id": "obj-001",
+          "category": "bed",
+          "description": "standard bed set low for walker transfers",
+          "position": { "x": 1.0, "y": 0.0, "z": 0.5 },
+          "dimensions": { "width": 1.6, "height": 0.52, "depth": 2.0 },
+          "on_primary_path": false,
+          "confidence": 0.95
+        },
+        {
+          "object_id": "obj-002",
+          "category": "nightstand",
+          "description": "nightstand on the far side of the bed, too low to brace against",
+          "position": { "x": 3.3, "y": 0.0, "z": 0.5 },
+          "dimensions": { "width": 0.45, "height": 0.58, "depth": 0.4 },
+          "on_primary_path": false,
+          "confidence": 0.9,
+          "supportive": false
+        },
+        {
+          "object_id": "obj-003",
+          "category": "rug",
+          "description": "loose area rug between bed and door",
+          "position": { "x": 2.3, "y": 0.0, "z": 1.8 },
+          "dimensions": { "width": 1.2, "height": 0.01, "depth": 0.8 },
+          "on_primary_path": true,
+          "confidence": 0.88,
+          "floor_level": true
+        },
+        {
+          "object_id": "obj-004",
+          "category": "chair",
+          "description": "accent chair narrowing the route to the door",
+          "position": { "x": 3.4, "y": 0.0, "z": 1.4 },
+          "dimensions": { "width": 0.6, "height": 0.85, "depth": 0.6 },
+          "on_primary_path": true,
+          "confidence": 0.92,
+          "path_clearance_m": 0.68
+        },
+        {
+          "object_id": "obj-005",
+          "category": "door",
+          "description": "bedroom door to hallway",
+          "position": { "x": 4.6, "y": 0.0, "z": 1.9 },
+          "dimensions": { "width": 0.92, "height": 2.1, "depth": 0.05 },
+          "on_primary_path": true,
+          "confidence": 0.97
+        },
+        {
+          "object_id": "obj-006",
+          "category": "lamp",
+          "description": "bedside lamp within easy reach",
+          "position": { "x": 2.7, "y": 0.6, "z": 0.5 },
+          "dimensions": { "width": 0.3, "height": 0.5, "depth": 0.3 },
+          "on_primary_path": false,
+          "confidence": 0.85
+        },
+        {
+          "object_id": "obj-007",
+          "category": "shelf",
+          "description": "high wall shelf holding medications and a phone charger",
+          "position": { "x": 0.2, "y": 1.8, "z": 2.5 },
+          "dimensions": { "width": 1.0, "height": 0.3, "depth": 0.25 },
+          "on_primary_path": false,
+          "confidence": 0.8,
+          "metadata": { "contains_essentials": true }
+        }
+      ]
+    },
+    {
+      "room_id": "room-hallway-001",
+      "room_type": "hallway",
+      "lighting_quality": "dark",
+      "notes": "No visible light source in the hallway.",
+      "objects": [
+        {
+          "object_id": "obj-008",
+          "category": "door",
+          "description": "hallway door from bedroom",
+          "position": { "x": 0.0, "y": 0.0, "z": 0.0 },
+          "dimensions": { "width": 0.92, "height": 2.1, "depth": 0.05 },
+          "on_primary_path": true,
+          "confidence": 0.95
+        },
+        {
+          "object_id": "obj-009",
+          "category": "door",
+          "description": "hallway door to bathroom",
+          "position": { "x": 3.0, "y": 0.0, "z": 0.0 },
+          "dimensions": { "width": 0.92, "height": 2.1, "depth": 0.05 },
+          "on_primary_path": true,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "room_id": "room-bathroom-001",
+      "room_type": "bathroom",
+      "floor_type": "linoleum",
+      "lighting_quality": "adequate",
+      "threshold_height_m": 0.01,
+      "metadata": { "non_slip_surface": true },
+      "objects": [
+        {
+          "object_id": "obj-010",
+          "category": "toilet",
+          "description": "toilet with nearby counter support",
+          "position": { "x": 0.5, "y": 0.0, "z": 0.5 },
+          "dimensions": { "width": 0.4, "height": 0.4, "depth": 0.65 },
+          "on_primary_path": false,
+          "confidence": 0.95
+        },
+        {
+          "object_id": "obj-011",
+          "category": "bathtub",
+          "description": "bathtub with flat non-slip mat",
+          "position": { "x": 1.5, "y": 0.0, "z": 0.0 },
+          "dimensions": { "width": 0.7, "height": 0.5, "depth": 1.5 },
+          "on_primary_path": false,
+          "confidence": 0.93
+        },
+        {
+          "object_id": "obj-012",
+          "category": "counter",
+          "description": "bathroom counter beside toilet",
+          "position": { "x": 0.0, "y": 0.0, "z": 1.0 },
+          "dimensions": { "width": 1.0, "height": 0.9, "depth": 0.5 },
+          "on_primary_path": false,
+          "confidence": 0.9
+        },
+        {
+          "object_id": "obj-013",
+          "category": "grab_bar",
+          "description": "grab bar beside bathtub",
+          "position": { "x": 2.2, "y": 0.9, "z": 0.2 },
+          "dimensions": { "width": 0.4, "height": 0.1, "depth": 0.1 },
+          "on_primary_path": false,
+          "confidence": 0.91
+        }
+      ]
+    }
+  ],
+  "hazards": [
+    {
+      "hazard_id": "haz-001",
+      "class": "floor_obstacle",
+      "severity": "urgent",
+      "explanation": "Loose rug on the walking path in the bedroom. A walker can catch on the edge and cause a fall.",
+      "related_object_ids": ["obj-003"],
+      "recommendation_ids": ["rec-001"]
+    },
+    {
+      "hazard_id": "haz-002",
+      "class": "path_obstruction",
+      "severity": "urgent",
+      "explanation": "Chair narrows the route in the bedroom to about 68cm, below the 90cm clearance needed for safe walker use.",
+      "related_object_ids": ["obj-004"],
+      "recommendation_ids": ["rec-002"]
+    },
+    {
+      "hazard_id": "haz-003",
+      "class": "lighting_issue",
+      "severity": "urgent",
+      "explanation": "Hallway lighting is dark. No visible light source is present on the hallway route. Nighttime trips to the bathroom are a major fall-risk scenario.",
+      "related_object_ids": [],
+      "recommendation_ids": ["rec-003"]
+    },
+    {
+      "hazard_id": "haz-004",
+      "class": "transfer_challenge",
+      "severity": "moderate",
+      "explanation": "Bed height is borderline low at about 52cm. There is no stable support surface within reach for sit-to-stand transfers. Transfers are harder and less stable with a walker.",
+      "related_object_ids": ["obj-001"],
+      "recommendation_ids": ["rec-004"]
+    },
+    {
+      "hazard_id": "haz-005",
+      "class": "reachability_issue",
+      "severity": "moderate",
+      "explanation": "Essential items appear to be stored high on a shelf in the bedroom. Reaching overhead is unsafe during recovery.",
+      "related_object_ids": ["obj-007"],
+      "recommendation_ids": ["rec-005"]
+    }
+  ],
+  "recommendations": [
+    {
+      "recommendation_id": "rec-001",
+      "priority": 1,
+      "category": "remove",
+      "text": "Remove the loose area rug between bed and door from the bedroom walking path. If it must stay, secure all edges flat with double-sided carpet tape.",
+      "target_location": "bedroom walking path",
+      "expected_benefit": "Eliminates trip hazard on the bed-to-bathroom route"
+    },
+    {
+      "recommendation_id": "rec-002",
+      "priority": 2,
+      "category": "move",
+      "text": "Move the accent chair narrowing the route to the door to the far wall or corner of the bedroom to open at least 90cm of clear width for the walker.",
+      "target_location": "bedroom walking path",
+      "expected_benefit": "Restores safe walker clearance on the bed-to-bathroom route"
+    },
+    {
+      "recommendation_id": "rec-003",
+      "priority": 3,
+      "category": "add",
+      "text": "Place a plug-in night light or motion-activated light in the hallway. The bathroom route must be visible without needing to find a switch at night.",
+      "target_location": "hallway",
+      "expected_benefit": "Reduces nighttime misstep risk on the bathroom route"
+    },
+    {
+      "recommendation_id": "rec-004",
+      "priority": 4,
+      "category": "professional",
+      "text": "The bed appears low for safe sit-to-stand transfers. Consider bed risers or discuss with an occupational therapist. A stable chair or grab handle beside the bed can also help.",
+      "target_location": "bedroom",
+      "expected_benefit": "Safer transfers, especially in early recovery days"
+    },
+    {
+      "recommendation_id": "rec-005",
+      "priority": 5,
+      "category": "move",
+      "text": "Move medications, chargers, and other daily essentials from the high shelf down to the nightstand within arm's reach of the bed. Nothing essential should require reaching above shoulder height.",
+      "target_location": "bedroom",
+      "expected_benefit": "Prevents unsafe reaching and reduces need to stand for basic items"
+    }
+  ],
+  "safe_path": {
+    "waypoints": [
+      { "x": 2.0, "y": 0.0, "z": 1.0, "label": "bed_exit" },
+      { "x": 3.0, "y": 0.0, "z": 2.0, "label": "mid_bedroom" },
+      { "x": 4.6, "y": 0.0, "z": 1.9, "label": "bedroom_door" },
+      { "x": 1.5, "y": 0.0, "z": 0.0, "label": "hallway_mid" },
+      { "x": 0.0, "y": 0.0, "z": 0.0, "label": "bathroom_door" }
+    ],
+    "width_ok": false,
+    "min_width_m": 0.68
+  },
+  "checklist": {
+    "first_night": [
+      "Remove all loose rugs from the path between bed and bathroom.",
+      "Clear the walking path of any furniture, shoes, cords, or clutter.",
+      "Place the walker within arm's reach of the bed.",
+      "Put a night light in the hallway and bathroom.",
+      "Move water, phone, charger, and other daily essentials to the nightstand.",
+      "Make sure all doors on the bathroom route open fully and stay open.",
+      "Place a non-slip mat in the bathroom if the floor gets slippery.",
+      "Test that the patient can reach light controls before standing up."
+    ],
+    "first_48_hours": [
+      "Install or arrange a grab bar near the toilet or shower area.",
+      "Practice the bed-to-bathroom route together during daytime.",
+      "Route all cords along walls instead of across walking paths.",
+      "Check whether bed height feels safe for sit-to-stand transfers.",
+      "Set up a bedside caddy with daily essentials in one place.",
+      "Confirm the patient can reach the phone or call device from bed at night."
+    ]
+  },
+  "ghost_rearrangements": [],
+  "images": {
+    "originals": [],
+    "annotated": []
+  },
+  "disclaimer": "This tool provides environmental suggestions to support recovery at home. It is not medical advice and does not replace guidance from your doctor, occupational therapist, or care team."
+}
