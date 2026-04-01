@@ -329,6 +329,13 @@ class Task4Tests(unittest.TestCase):
         self.assertTrue(session["recommendations"])
         self.assertTrue(session["ghost_rearrangements"])
         self.assertTrue(session["checklist"]["first_night"])
+        self.assertTrue(
+            all("room_id" in waypoint for waypoint in session["safe_path"]["waypoints"])
+        )
+        self.assertIn(
+            "hallway_mid",
+            [waypoint["label"] for waypoint in session["safe_path"]["waypoints"]],
+        )
 
 
 if __name__ == "__main__":

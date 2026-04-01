@@ -116,7 +116,13 @@ def _room_to_dict(room: Room) -> dict:
 def _safe_path_to_dict(sp: SafePath) -> dict:
     return {
         "waypoints": [
-            {"x": wp.x, "y": wp.y, "z": wp.z, "label": wp.label}
+            {
+                "x": wp.x,
+                "y": wp.y,
+                "z": wp.z,
+                "label": wp.label,
+                **({"room_id": wp.room_id} if wp.room_id else {}),
+            }
             for wp in sp.waypoints
         ],
         "width_ok": sp.width_ok,

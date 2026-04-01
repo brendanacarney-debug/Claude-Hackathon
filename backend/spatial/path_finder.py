@@ -22,6 +22,7 @@ class Waypoint:
     y: float
     z: float
     label: str
+    room_id: str | None = None
 
 
 @dataclass
@@ -181,7 +182,13 @@ def compute_safe_path(rooms: list[Room], profile_min_width: float = 0.9) -> Safe
     start_x = bed.position["x"] + bed.dimensions["width"] / 2
     start_z = bed.position["z"] + bed.dimensions["depth"]
     waypoints: list[Waypoint] = [
-        Waypoint(x=round(start_x, 2), y=0.0, z=round(start_z, 2), label="bed_exit")
+        Waypoint(
+            x=round(start_x, 2),
+            y=0.0,
+            z=round(start_z, 2),
+            label="bed_exit",
+            room_id=bed_room.room_id if bed_room else None,
+        )
     ]
     path_2d: list[tuple[float, float]] = [(start_x, start_z)]
 
@@ -214,7 +221,15 @@ def compute_safe_path(rooms: list[Room], profile_min_width: float = 0.9) -> Safe
         dodge_x = round(bx + px * offset, 2)
         dodge_z = round(bz + pz * offset, 2)
 
-        waypoints.append(Waypoint(x=dodge_x, y=0.0, z=dodge_z, label="dodge"))
+        waypoints.append(
+            Waypoint(
+                x=dodge_x,
+                y=0.0,
+                z=dodge_z,
+                label="dodge",
+                room_id=bed_room.room_id if bed_room else None,
+            )
+        )
         path_2d.append((dodge_x, dodge_z))
 
     # ------------------------------------------------------------------ #
@@ -227,14 +242,52 @@ def compute_safe_path(rooms: list[Room], profile_min_width: float = 0.9) -> Safe
         if bedroom_door:
             dcx = round(bedroom_door.position["x"] + bedroom_door.dimensions["width"] / 2, 2)
             dcz = round(bedroom_door.position["z"], 2)
-            waypoints.append(Waypoint(x=dcx, y=0.0, z=dcz, label="bedroom_door"))
+            waypoints.append(
+                Waypoint(
+                    x=dcx,
+                    y=0.0,
+                    z=dcz,
+                    label="bedroom_door",
+                    room_id=bed_room.room_id,
+                )
+            )
             path_2d.append((dcx, dcz))
+
+        hallway_room = next(
+            (
+                room
+                for room in rooms
+                if room.room_type == "hallway"
+                and room is not bed_room
+                and room is not bath_room
+            ),
+            None,
+        )
+        if hallway_room:
+            hx = round(hallway_room.dimensions["width"] / 2, 2)
+            hz = round(hallway_room.dimensions["length"] / 2, 2)
+            waypoints.append(
+                Waypoint(
+                    x=hx,
+                    y=0.0,
+                    z=hz,
+                    label="hallway_mid",
+                    room_id=hallway_room.room_id,
+                )
+            )
+            path_2d.append((hx, hz))
 
     # ------------------------------------------------------------------ #
     # 5. Final waypoint: bathroom door                                    #
     # ------------------------------------------------------------------ #
     waypoints.append(
-        Waypoint(x=round(end_x, 2), y=0.0, z=round(end_z, 2), label="bathroom_door")
+        Waypoint(
+            x=round(end_x, 2),
+            y=0.0,
+            z=round(end_z, 2),
+            label="bathroom_door",
+            room_id=bath_room.room_id if bath_room else None,
+        )
     )
     path_2d.append((round(end_x, 2), round(end_z, 2)))
 
